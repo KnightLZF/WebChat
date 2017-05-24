@@ -1,0 +1,80 @@
+body{
+  background-image:url('../css/glass.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#main {
+  width: 1000px;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin:0 auto;
+  border:5px;
+  border-style: solid;
+  border-color: white;
+}
+
+#panel {
+  float: left;
+  width: 30%;
+  height: 100%;
+  border: 5px;
+  border-color: white;
+  border-style: solid;
+}
+
+#user {
+  padding: 18px;
+  position: relative;
+}
+
+#search {
+  padding: 10px;
+  width: 100%;
+}
+
+#main-friends {
+  width: 100%;
+}
+
+#chat {
+  width: 70%;
+  height: 100%;
+  float: right;
+  background-color: white;
+  border: 5px;
+  border-color: white;
+  border-style: solid;
+}
+
+#chat-head {
+  height: 10%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom:  1px;
+  border-color: gray;
+  border-style:dashed;
+}
+
+#chat-body {
+  height: 65%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom:  1px;
+  border-color: gray;
+  border-style:dashed;
+}
+
+#chat-input {
+  height: 25%;
+
+}
+
+#chat-inputbox {
+  background: none;
+  border: none;
+  width: 100%;
+  height: 75%;
+}
