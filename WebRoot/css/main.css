@@ -1,7 +1,7 @@
 body{
-  background-image:url('../css/glass.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
+	background-image:url('../img/background/glass4.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 #main {
