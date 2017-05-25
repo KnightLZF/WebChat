@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <!--
   	<link rel="stylesheet" type="text/css" href="styles.css">
   	-->
-                <link rel="stylesheet" href="css/index.css">
+                <link rel="stylesheet" href="css/register.css">
                   <link rel="stylesheet" href="css/main.css"></head>
 
                   <body>
@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                           <input type="submit" value="注册用户" name="submit"/>
                           <input type="reset" value="重置" name="reset"/>
                           <br>
-                            <div class="button">
+                            <div class="button" id="jump" >
                               <a href="index.jsp">已有账户，去登录</a>
                             </div>
                           </form>
