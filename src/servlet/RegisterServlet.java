@@ -48,7 +48,9 @@ public class RegisterServlet  extends HttpServlet{
 					else{
 						message="×¢²á³É¹¦£¬ÇëµÇÂ¼£¡";
 						String sqls="insert into user values('"+username+"','"+password+"');";
+						String sqls2="insert into user_impression values('"+username+"');";
 						con.executeUpdate(sqls);
+						con.executeUpdate(sqls2);
 						t=true;
 					}
 				}

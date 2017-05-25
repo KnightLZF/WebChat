@@ -7,11 +7,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <style>
-body{
-	background-image:url('img/background/glass4.jpg');
-	background-repeat: no-repeat;
-	background-size: 100%;
-}
 
 .clearfix:after,
 form:after {
@@ -230,18 +225,19 @@ form:after {
 </style>
   <head>
     <base href="<%=basePath%>">
-    
+
     <title>用户登录界面</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="expires" content="0">
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link rel="stylesheet" href="css/main.css">
   </head>
-  
+
   <body>
       <div class="container">
 	  <section id="content">
@@ -253,7 +249,7 @@ form:after {
               String s2=(String)request.getAttribute("registersuccess");
               if(s2==null) s2="";
               else {out.print("<tr><p style=\"color:red\">"+s2+"</p></tr>");}
-              
+
               String s=(String)request.getAttribute("loginfail");
               if(s==null) s="";
               else {out.print("<tr><p style=\"color:red\">"+s+"</p></tr>");}
