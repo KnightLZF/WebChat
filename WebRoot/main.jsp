@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div id="chat-input">
           <input type="text" id="chat-inputbox" name="" value="">
-          <button type="button" class="btn btn-success" name="button">发送</button>
+          <button type="button" class="btn btn-success" id="send" name="button">发送</button>
         </div>
 
         <div id="chat-send">
