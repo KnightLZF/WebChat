@@ -15,6 +15,10 @@ import model.User;
 import Tools.JDBConection;
 
 public class LoginServlet extends HttpServlet{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public void doGet(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
 		this.doPost(req, resp);
 	}
