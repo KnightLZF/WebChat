@@ -127,7 +127,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div id="chat-input">
           <input type="text" id="chat-inputbox" name="" value="">
+<<<<<<< HEAD
   		  <button type="button" class="btn btn-success" name="button" onclick="sendmessage()">发送</button>        </div>
+=======
+          <button type="button" class="btn btn-success" id="send" name="button">发送</button>
+        </div>
+>>>>>>> 6363998cc2f655dd37ab7e4c193a2296512587c9
 
         <div id="chat-send">
         </div>
