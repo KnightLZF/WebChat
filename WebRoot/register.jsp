@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <link rel="stylesheet" href="css/register.css">
                   <link rel="stylesheet" href="css/main.css"></head>
                   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-                    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+                    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
                     <body>
                       <div class="container text-center">
