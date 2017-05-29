@@ -9,18 +9,18 @@ import Tools.JDBConection;
 
 public class friendsrelationAction {
 	List list=new ArrayList();
-	private String username;//µ±Ç°µÇÂ¼ÓÃ»§Ãû
-	
+	private String username;//ï¿½ï¿½Ç°ï¿½ï¿½Â¼ï¿½Ã»ï¿½ï¿½ï¿½
+
 	public friendsrelationAction(){
 		username="";
 	}
-	
-	//ÉèÖÃµ±Ç°ÓÃ»§Ãû
+
+	//ï¿½ï¿½ï¿½Ãµï¿½Ç°ï¿½Ã»ï¿½ï¿½ï¿½
 	public void setusername(String s){
 		username=s;
 	}
-	
-	//²éÕÒµ±Ç°ÓÃ»§µÄËùÓÐºÃÓÑ
+
+	//ï¿½ï¿½ï¿½Òµï¿½Ç°ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½
 	public List<friendsrelation> FindAllFriends(){
 			JDBConection con=new JDBConection();
 			if(con.createConnection()){
@@ -31,7 +31,7 @@ public class friendsrelationAction {
 					while(rs.next()){
 						friendsrelation com=new friendsrelation();
 						list.add(com);
-						
+
 						com.setid(rs.getInt("friendsrid"));
 						
 						String s = rs.getString("nameone");
@@ -42,6 +42,7 @@ public class friendsrelationAction {
 							com.setnametwo(s);
 							com.setnameone(rs.getString("nametwo"));
 						}
+						// è¿™ä¸€æ®µå«ä¹‰æœ‰æ­§ä¹‰ï¼Œå› ä¸ºfriendsrelationæ˜¯ä¸€ä¸ªå­˜æ”¾æ‰€æœ‰ç”¨æˆ·ä¹‹é—´å¥½å‹å…³ç³»çš„æ•°æ®åº“ã€‚
 				}
 					con.closeResultSet(rs);
 					con.closeConnection();
@@ -49,12 +50,12 @@ public class friendsrelationAction {
 			}
 			return list;
 	}
-	
-	//É¾³ýµ±Ç°ÓÃ»§µÄÒ»¸öºÃÓÑ
+
+	//É¾ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ã»ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public boolean DeleteFriends(int i){
 		JDBConection con=new JDBConection();
 		if(con.createConnection()){
-			/*É¾³ýÊý¾Ý¿âÖÐµÄ¹ØÏµ²¢°Ñ±ÈËü´óµÄidºÅ¼õ1*/
+			/*É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ÐµÄ¹ï¿½Ïµï¿½ï¿½ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½idï¿½Å¼ï¿½1*/
 			String sql="delete from friendsrelation where friendsrid='"+i+"'";
 			con.executeUpdate(sql);
 			String sql2="update friendsrelation set friendsrid=friendsrid-1 where friendsrid>'"+i+"'";
@@ -64,21 +65,21 @@ public class friendsrelationAction {
 		}
 		return false;
 	}
-	
-	//Ìí¼ÓºÃÓÑs
+
+	//ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½s
 	public boolean AddFriends(String s){
 		JDBConection con=new JDBConection();
 		if(con.createConnection()){
 			String sql1="select Max(id) from friendsrelation;";
 			ResultSet rs1=con.executeQuery(sql1);
 			if(rs1!=null){
-				
+
 			}
 		}
 		return false;
 	}
-	
-	//²éÕÒÓÃ»§
+
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 		public List<User> FindKeyWord(String s){
 			JDBConection con=new JDBConection();
 			if(con.createConnection()){
@@ -88,10 +89,10 @@ public class friendsrelationAction {
 				try{
 					rs=con.executeQuery(sql);
 					while(rs.next()){
-						
+
 						u.setusername(rs.getString("username"));
 						list.add(u);
-						//System.out.println("²éÕÒµ½"+u);
+						//System.out.println("ï¿½ï¿½ï¿½Òµï¿½"+u);
 				}
 					//System.out.println(list.size());
 					con.closeResultSet(rs);
@@ -101,4 +102,3 @@ public class friendsrelationAction {
 			return list;
 		}
 }
-

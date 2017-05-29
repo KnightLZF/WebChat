@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="js/lyf.js"></script>
-<title>Insert title here</title>
+<title>用户信息</title>
 </head>
 <body style="background-image: url('img/background/glass4.jpg')">
 

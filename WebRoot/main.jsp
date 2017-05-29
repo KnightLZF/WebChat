@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
- 	<script type="text/javascript" src="friend.js" charset="utf-8"></script>
+ 	<script type="text/javascript" src="js/friend.js" charset="utf-8"></script>
   </head>
 
   <body>
@@ -63,8 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!--搜索框-->
         <div id="search" class="bg-success">
         	<form action="userinfo.jsp" method="post">
-           		<input id="searchtext" type="text" class="btn btn-default" name="username_info" placeholder="搜索">
-		   		<input type="submit" value="搜索"/><br>
+           		<input id="searchtext" type="text" name="username_info" placeholder="搜索">
+		   		<input type="submit" class="glyphicon glyphicon-search" value="搜索"/><br>
 		   		<%
 					String SearchError =request.getParameter("SearchError");
 		   			if(SearchError!=null){
@@ -106,7 +106,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             out.println("</td></tr>");
         }
         %>
-
+        <%-- 以上代码实质上是这个意思 --%>
+            <%-- <tr id="i">
+              <td>
+                <span><a href="javascript:getfriendname('nametwo')" onmouseover="ComInfo" id="ua">nametwo</a></span>
+                <input id="j" style="display:none" value="j">
+                <input id="nametwo" style="display:none" value="nametwo">
+                <span><a href="userinfo.jsp?username_info=nametwo">查询好友资料</a></span>
+                <span><button type="button" name="button" onclick="shachu('i','j')">删除</button></span>
+              </td>
+            </tr> --%>
         </table>
       </div>
 
@@ -120,20 +129,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div id="chat-body" >
           <span style="">聊天记录</span><br>
-          <textarea id="message" rows="18" cols="95" readonly="readonly"><%=(String)request.getAttribute("chatmessage") %></textarea>
+          <textarea id="message" rows="20" cols="95" readonly="readonly"><%=(String)request.getAttribute("chatmessage") %></textarea>
         </div>
 
         <div id="chat-input">
           <input type="text" id="chat-inputbox" name="" value="">
 <<<<<<< HEAD
-  		  <button type="button" class="btn btn-success" name="button" onclick="sendmessage()">发送</button>        </div>
+  		  <button type="button" class="btn btn-success" name="button" id="send" onclick="sendmessage()">发送</button>        </div>
 =======
-          <button type="button" class="btn btn-success" id="send" name="button">发送</button>
         </div>
 >>>>>>> 6363998cc2f655dd37ab7e4c193a2296512587c9
-
-        <div id="chat-send">
-        </div>
       </div>
     </div>
   </body>
