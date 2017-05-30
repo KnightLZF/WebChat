@@ -130,7 +130,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div id="chat-body" >
           <span style="">聊天记录</span><br>
-          <textarea id="message" rows="20" cols="95" readonly="readonly"><%=(String)request.getAttribute("chatmessage") %></textarea>
+          <textarea id="message" rows="17" cols="95" readonly="readonly"><%=(String)request.getAttribute("chatmessage") %></textarea>
+          <button  type="button" class="btn btn-success" name="button" id="download" onclick="downloadmessage()">下载聊天记录</button>
+          <button  type="button" class="btn btn-success" name="button" id="deletemsg" onclick="deletemsg()">删除聊天记录</button>
         </div>
 
         <div id="chat-input">

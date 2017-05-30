@@ -81,4 +81,21 @@
   <url-pattern>/ImpressionServlet</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+  <servlet-name>DownloadMsgServlet</servlet-name>
+  <servlet-class>servlet.DownloadMsgServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DownloadMsgServlet</servlet-name>
+  <url-pattern>/DownloadMsgServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>DeleteMsgServlet</servlet-name>
+  <servlet-class>servlet.DeleteMsgServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DeleteMsgServlet</servlet-name>
+  <url-pattern>/DeleteMsgServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

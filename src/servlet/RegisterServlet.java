@@ -24,12 +24,22 @@ public class RegisterServlet  extends HttpServlet{
 		String password=req.getParameter("password");
 		String passwords=req.getParameter("passwords");
 		
+		String sex=req.getParameter("sex");
+	    String ages=req.getParameter("ages");
+		int age=Integer.parseInt(ages);
+
+		
 		/*如果 用户提交的表单信息任意一项为空，则返回错误信息，注册失败！*/
-		if(username.equals("")||password.equals("")||passwords.equals(""))
+		if(username.equals("")||password.equals("")||passwords.equals("")||ages.equals(""))
 			message="任意一项都不能为空，请把表单信息填写完整！";
 		//否则
 		else{
 			
+			//如果年龄大于120岁或者小于0岁
+			if(age<0||age>120)
+				message="年龄只能为0-120之间的整数！";
+
+			else{
 			//建立数据库连接
 			JDBConection con=new JDBConection();
 			if(con.createConnection()){
@@ -49,14 +59,24 @@ public class RegisterServlet  extends HttpServlet{
 						message="注册成功，请登录！";
 						String sqls="insert into user values('"+username+"','"+password+"');";
 						String sqls2="insert into user_impression values('"+username+"');";
+						
+						//如果sex为0，说明选中男生，否则，说明选中女生
+						if(sex.equals("0")) sex="M";
+						else sex="F";
+						
+						//插入用户信息表
+						String sql3="insert into userinfo values('"+username+"','"+sex+"','"+age+"');";
+						
 						con.executeUpdate(sqls);
 						con.executeUpdate(sqls2);
+						con.executeUpdate(sql3);
 						t=true;
 					}
 				}
 				}catch(SQLException e){e.printStackTrace();}
 				con.closeResultSet(rs);
 				con.closeConnection();
+			}
 			}
 		}
 		//如果注册失败，返回注册页面

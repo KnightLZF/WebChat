@@ -116,3 +116,24 @@ function myfresh(){
 	xmlHttp2.send(null);
 }
 setInterval("myfresh();",100);
+function downloadmessage(){
+	//获取聊天记录内容以及交互好友
+	var msg=document.getElementById("message");
+	
+	var n=document.getElementById("friendname");
+	createXMLHttpRequest();
+
+	xmlHttp.open("Get", "DownloadMsgServlet?dmsg="+msg.value+"&to="+n.value, true);
+	xmlHttp.send(null);
+	alert("Successfuly download");
+}
+
+function deletemsg(){
+	//获取交互好友	
+	var n=document.getElementById("friendname");
+	createXMLHttpRequest();
+
+	xmlHttp.open("Get", "DeleteMsgServlet?to="+n.value, true);
+	xmlHttp.send(null);
+	alert("Successfuly deleted");
+}
