@@ -44,13 +44,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <td><input type="password" placeholder="确认密码" required="required"name="passwords"/></td>
                               </tr>
                               <tr>
-                                <td>性别：</td>
-                                <td>男<input type="radio" name="sex" value="0" checked="true">女<input type="radio" name="sex" value="1"></td>
-                              </tr>
-                              <tr>
                                 <td>年龄：</td>
-                                <td><input type="text"  required="required" name="ages" onkeyup="this.value=this.value.replace(/\D/g,''); "/></td>
+                                <td><input type="text"  placeholder="年龄" required="required" name="ages" onkeyup="this.value=this.value.replace(/\D/g,''); "/></td>
                                </tr>
+                              <tr>
+                                <td>性别：</td>
+                                <td>男<input type="radio" name="sex" value="0" checked="true">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                女<input type="radio" name="sex" value="1"></td>
+                              </tr>
                             </table>
 
                             <input type="submit" class="input-center" value="注册用户" name="submit"/>

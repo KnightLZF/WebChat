@@ -64,8 +64,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!--搜索框-->
         <div id="search" class="bg-success">
         	<form action="userinfo.jsp" method="post">
-           		<input id="searchtext" type="text" name="username_info" placeholder="搜索">
-		   		<input type="submit" class="glyphicon glyphicon-search" value="搜索"/><br>
+           		<input id="searchtext" type="text" class="bg-success" name="username_info" placeholder="搜索">
+			   		<input type="submit" class="btn btn-success btn-sm" value="搜索"/>
+		   		<br>
 		   		<%
 					String SearchError =request.getParameter("SearchError");
 		   			if(SearchError!=null){
@@ -102,21 +103,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             out.println("<span><a href=\"javascript:getfriendname('"+nametwo+"') "+" \"  onmouseover=\"ComInfo()\" id=\"ua\">"+nametwo+"</a></span>");
             out.println("<input id=\""+j+"\" style=\"display:none\" value=\""+j+"\"/>");
             out.println("<input id=\""+nametwo+"\" "+"style=\"display:none\" value=\""+nametwo+"\"/>");
-            out.println("<span><a href=\"userinfo.jsp?username_info="+nametwo+"\">查询好友资料</a></span>");
-            out.println("<span><button type=\"button\" name=\"button\" onclick=\"shanchu('"+i+"','"+j+"')\">删除</button></span>");
+            out.println("<span><button type=\"button\" name=\"button\" class=\"friends-button btn btn-xs\" onclick=\"shanchu('"+i+"','"+j+"')\">删除</button></span>");
+            out.println("<span><button type=\"button\" name=\"button\" class=\"friends-button btn btn-success btn-xs\" onclick=\"\">移动</button></span>");
+            out.println("<span><a href=\"userinfo.jsp?username_info="+nametwo+"\" class=\"friends-button btn btn-info btn-xs\">查看</a></span>");
             out.println("</td></tr>");
         }
         %>
-        <%-- 以上代码实质上是这个意思 --%>
-            <%-- <tr id="i">
-              <td>
-                <span><a href="javascript:getfriendname('nametwo')" onmouseover="ComInfo" id="ua">nametwo</a></span>
-                <input id="j" style="display:none" value="j">
-                <input id="nametwo" style="display:none" value="nametwo">
-                <span><a href="userinfo.jsp?username_info=nametwo">查询好友资料</a></span>
-                <span><button type="button" name="button" onclick="shachu('i','j')">删除</button></span>
-              </td>
-            </tr> --%>
         </table>
       </div>
 
@@ -125,23 +117,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
       <div id="chat">
         <div id="chat-head">
-          好友姓名<input id="friendname"  value="leila" readonly="readonly"/>
+          <input id="friendname"  value=" " readonly="readonly"/><!-- 好友姓名 -->
         </div>
 
         <div id="chat-body" >
-          <span style="">聊天记录</span><br>
-          <textarea id="message" rows="17" cols="95" readonly="readonly"><%=(String)request.getAttribute("chatmessage") %></textarea>
-          <button  type="button" class="btn btn-success" name="button" id="download" onclick="downloadmessage()">下载聊天记录</button>
-          <button  type="button" class="btn btn-success" name="button" id="deletemsg" onclick="deletemsg()">删除聊天记录</button>
+          <h4 class="chat-title">聊天记录</h4>
+          <textarea id="message" rows="14" cols="72" readonly="readonly"><%=(String)request.getAttribute("chatmessage") %></textarea>
+          <br/>
+	      <div id="chat-record">
+	          <button  type="button" class="btn btn-success btn-sm" name="button" id="download" onclick="downloadmessage()">下载聊天记录</button>
+	          <button  type="button" class="btn btn-success btn-sm" name="button" id="deletemsg" onclick="deletemsg()">删除聊天记录</button>
+          </div>
         </div>
 
         <div id="chat-input">
           <input type="text" id="chat-inputbox" name="" value="">
-<<<<<<< HEAD
-  		  <button type="button" class="btn btn-success" name="button" id="send" onclick="sendmessage()">发送</button>        </div>
-=======
+  		  <button type="button" class="btn btn-success" name="button" id="send" onclick="sendmessage()">发送</button>        
+  		  </div>
         </div>
->>>>>>> 6363998cc2f655dd37ab7e4c193a2296512587c9
       </div>
     </div>
   </body>
