@@ -46,6 +46,15 @@
   </servlet-mapping>
   
   <servlet>
+  <servlet-name>DeleteServlet</servlet-name>
+  <servlet-class>servlet.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DeleteServlet</servlet-name>
+  <url-pattern>/DeleteServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   <servlet-name>SearchServlet</servlet-name>
   <servlet-class>servlet.SearchServlet</servlet-class>
   </servlet>

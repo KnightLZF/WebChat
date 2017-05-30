@@ -2,59 +2,59 @@ package model;
 
 public class friendsrelation {
 	private int id;
-	private String nameone;//ÅóÓÑAµÄÃû×Ö
-	private String nametwo;//ÅóÓÑBµÄÃû×Ö
-	private int groupid;//ÅóÓÑBÔÚÅóÓÑAºÃÓÑÁĞ±íÀïµÄ·Ö×é
-	
+	private String nameone;//ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String nametwo;//ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int groupid;//ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+
 	public friendsrelation(){
 		id=0;
 		nameone="";
 		nametwo="";
 		groupid=0;
 	}
-	
-	//ÉèÖÃid,AµÄÃû×ÖÒÔ¼°BµÄÃû×Ö
+
+	//ï¿½ï¿½ï¿½ï¿½id,Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void setid(int i){
 		id=i;
 	}
-	
+
 	public void setnameone(String s){
 		nameone=s;
 	}
-	
+
 	public void setnametwo(String s){
 		nametwo=s;
 	}
-	
-	//»ñÈ¡id
+
+	//ï¿½ï¿½È¡id
 	public int getid(){
 		return id;
 	}
-	
-	//»ñÈ¡AµÄÃû×Ö
+
+	//ï¿½ï¿½È¡Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String getnameone(){
 		return nameone;
 	}
-	
-	//»ñÈ¡BµÄÃû×Ö
+
+	//ï¿½ï¿½È¡Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String getnametwo(){
 		return nametwo;
 	}
-	
-	//ÉèÖÃgroupid
+
+	//ï¿½ï¿½ï¿½ï¿½groupid
 	public void setgroupid(int i){
 		groupid=i;
 	}
-	
-	//»ñÈ¡group·Ö×éÃû³Æ
+
+	//ï¿½ï¿½È¡groupï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String getgroupname(){
 		String s="";
 		switch(groupid){
-		case 1:s="ºÃÓÑ";break;
-		case 2:s="¼ÒÈË";break;
+		case 1:s="ï¿½ï¿½ï¿½ï¿½";break;
+		case 2:s="ï¿½ï¿½ï¿½ï¿½";break;
 		case 3:s="Í¬Ñ§";break;
-		case 4:s="Í¬ÊÂ";break;
-		case 5:s="Ä°ÉúÈË";break;
+		case 4:s="Í¬ï¿½ï¿½";break;
+		case 5:s="Ä°ï¿½ï¿½ï¿½ï¿½";break;
 		default:break;
 		}
 		return s;

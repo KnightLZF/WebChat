@@ -1,0 +1,26 @@
+#main-info {
+  width: 500px;
+  height: 600px;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin:0 auto;
+  border:5px;
+  border-style: solid;
+  border-color: white;
+}
+
+#userinfo {
+	top: 0px; left: 0px; height: 100px; width: 500px; position: absolute;
+}
+
+#imp {
+	top: 100px; left: 0px; height: 300px; width: 500px; position: absolute;
+}
+
+#imp-no {
+	top: 100px; left: 0px; height: 300px; width: 500px; position: absolute;
+}
+
+#imp-add {
+	top: 400px; left: 0px; height: 100px; width: 500px; position: absolute;
+}

@@ -155,13 +155,16 @@ form:after {
 	border: 1px solid #D69E31;
 	color: #85592e;
 	cursor: pointer;
-	float: left;
+	/*float: left;*/
 	font: bold 15px Helvetica, Arial, sans-serif;
 	height: 35px;
 	margin: 20px 0 35px 15px;
 	position: relative;
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	width: 120px;
+}
+#button-login {
+	margin:0 auto;
 }
 #content form input[type="submit"]:hover {
 	background: rgb(254,193,81);

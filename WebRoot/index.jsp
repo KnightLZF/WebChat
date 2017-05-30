@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	              else {out.print("<tr><p style=\"color:red\">"+s+"</p></tr>");}
 	             %>
                           <div>
-                            <input type="submit" value="登录" name="submit"/>
+                            <input id="button-login" type="submit" value="登录" name="submit"/>
                           </div>
                         </form>
                         <div class="button">

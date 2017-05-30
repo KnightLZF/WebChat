@@ -5,10 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/userinfo.css">
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/lyf.js"></script>
 <title>用户信息</title>
 </head>
-<body style="background-image: url('img/background/glass4.jpg')">
 
 	<%
 		String username = request.getParameter("username_info");
@@ -22,12 +25,9 @@
 	%>
 
 
-	<div
-		style="top: 70px; left: 450px; height: 500px; width: 500px; position: absolute; border: 1px solid; border-color: red">
+	<div id="main-info" class="bg-success">
 
-		<div
-			style="top: 0px; left: 0px; height: 100px; width: 500px; position: absolute;">
-
+		<div id="userinfo">
 			<table>
 				<c:forEach items="${pageScope.list}" var="list">
 					<tr>
@@ -37,7 +37,6 @@
 					</tr>
 				</c:forEach>
 			</table>
-
 		</div>
 
 		<%
@@ -47,9 +46,7 @@
 				if (li.size() > 0) {
 					pageContext.setAttribute("li", li);
 		%>
-		<div
-			style="top: 100px; left: 0px; height: 300px; width: 500px; position: absolute;">
-
+		<div id="imp">
 			<table>
 				<c:forEach items="${pageScope.li}" var="li">
 					<tr>
@@ -60,21 +57,17 @@
 					</tr>
 				</c:forEach>
 			</table>
-
 		</div>
 
 		<%
 			} else {
 		%>
-		<div
-			style="top: 100px; left: 0px; height: 300px; width: 500px; position: absolute;">
-
+		<div id="imp-no">
 			<table>
 				<tr>
 					<td>暂时无好友评价，快给他评价吧！</td>
 				</tr>
 			</table>
-
 		</div>
 		<%
 			}
@@ -95,7 +88,7 @@
 				}
 				if(is){
 		%>
-		<div
+		<div id="imp-add"
 			style="top: 400px; left: 0px; height: 100px; width: 500px; position: absolute;">
 			<form action="ImpressionServlet?username_one=<%=username%>"
 				method="post">
@@ -111,9 +104,9 @@
 		<div
 			style="top: 400px; left: 0px; height: 100px; width: 500px; position: absolute;">
 			<textarea rows="4" cols="68" name="text" placeholder="请输入你对该用户的映像或评价吧。。。。。。。。" disabled="disabled"></textarea>
-			<br> <input type="submit" value="提交" onclick="NotFriends()" /> 
-			 	 <input type="submit" value="加好友" />
-			<span><a href="main.jsp">返回主窗口</a></span>
+			<br> <input type="submit"  class="btn btn-success" value="提交" onclick="NotFriends()" /> 
+			 	 <input type="submit" class="btn btn-success" value="加好友" />
+			<span><a href="main.jsp" class="btn btn-default">返回主窗口</a></span>
 
 		</div>
 		<%
