@@ -30,7 +30,7 @@ public class UserinfoAction {
 	
 		JDBConection con=new JDBConection();
 		if(con.createConnection()){
-			String sql="select * from userinfo where username='"+username1+"';";
+			String sql="select * from userinfo where username="+username1+";";
 			ResultSet rs=null;
 			Userinfo ui=new Userinfo();
 			try{

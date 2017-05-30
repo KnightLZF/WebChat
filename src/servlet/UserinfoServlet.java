@@ -22,7 +22,7 @@ public class UserinfoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/xml;charset=utf-8");
 		resp.setHeader("Catche-Control", "no-cache");
-		req.setCharacterEncoding("utf-8");
+		req.setCharacterEncoding("utf8");
 		
 		//获取传送过来的好友名
 		String username_info = req.getParameter("username_info");

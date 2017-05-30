@@ -9,18 +9,30 @@ import Tools.JDBConection;
 
 public class friendsrelationAction {
 	List list=new ArrayList();
-	private String username;//锟斤拷前锟斤拷录锟矫伙拷锟斤拷
-
+	private String username;//当前登录用户名
+	private String username_add;//要被添加的用户名
+	private int id;//设置id参数
+	
 	public friendsrelationAction(){
 		username="";
 	}
-
-	//锟斤拷锟矫碉拷前锟矫伙拷锟斤拷
+	
+	//设置当前用户名
 	public void setusername(String s){
 		username=s;
 	}
+	
+	//设置要被添加的用户名字
+	public void setUsername_add(String username_add) {
+		this.username_add = username_add;
+	}
+	
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
-	//锟斤拷锟揭碉拷前锟矫伙拷锟斤拷锟斤拷锟叫猴拷锟斤拷
+	//查找当前用户的所有好友
 	public List<friendsrelation> FindAllFriends(){
 			JDBConection con=new JDBConection();
 			if(con.createConnection()){
@@ -31,7 +43,7 @@ public class friendsrelationAction {
 					while(rs.next()){
 						friendsrelation com=new friendsrelation();
 						list.add(com);
-
+						
 						com.setid(rs.getInt("friendsrid"));
 						
 						String s = rs.getString("nameone");
@@ -42,7 +54,6 @@ public class friendsrelationAction {
 							com.setnametwo(s);
 							com.setnameone(rs.getString("nametwo"));
 						}
-						// 杩欎竴娈靛惈涔夋湁姝т箟锛屽洜涓篺riendsrelation鏄竴涓瓨鏀炬墍鏈夌敤鎴蜂箣闂村ソ鍙嬪叧绯荤殑鏁版嵁搴撱�
 				}
 					con.closeResultSet(rs);
 					con.closeConnection();
@@ -50,16 +61,18 @@ public class friendsrelationAction {
 			}
 			return list;
 	}
+
 	
+	//查找当前用户的各个分组里的好友,i指的是分组id，1为好友，2为家人，3为同学，4为同事，5为陌生人
 		public List<friendsrelation> FindinFriends(int i){
 			List<friendsrelation> lists=new ArrayList();
-		
+			//连接数据库
 			JDBConection con=new JDBConection();
 			if(con.createConnection()){
-				
+				//从数据库中找出当前用户在好友分组里的好友
 				String sql="select * from friendsrelation where (nameone='"+username+"' and grouponeid='"+i+"') or (nametwo='"+username+"' and grouptwoid='"+i+"');";
 				
-				
+				//获取结果集
 				ResultSet rs=null;
 				try{
 					rs=con.executeQuery(sql);
@@ -86,13 +99,13 @@ public class friendsrelationAction {
 			}
 			return lists;
 		}
-		
-
-	//删锟斤拷锟斤拷前锟矫伙拷锟斤拷一锟斤拷锟斤拷锟斤拷
+	
+	
+	//删除当前用户的一个好友
 	public boolean DeleteFriends(int i){
 		JDBConection con=new JDBConection();
 		if(con.createConnection()){
-			/*删锟斤拷锟斤拷锟捷匡拷锟叫的癸拷系锟斤拷锟窖憋拷锟斤拷锟斤拷锟斤拷id锟脚硷拷1*/
+			/*删除数据库中的关系并把比它大的id号减1*/
 			String sql="delete from friendsrelation where friendsrid='"+i+"'";
 			con.executeUpdate(sql);
 			String sql2="update friendsrelation set friendsrid=friendsrid-1 where friendsrid>'"+i+"'";
@@ -102,21 +115,21 @@ public class friendsrelationAction {
 		}
 		return false;
 	}
-
-	//锟斤拷锟接猴拷锟斤拷s
-	public boolean AddFriends(String s){
-		JDBConection con=new JDBConection();
-		if(con.createConnection()){
-			String sql1="select Max(id) from friendsrelation;";
-			ResultSet rs1=con.executeQuery(sql1);
-			if(rs1!=null){
-
-			}
-		}
-		return false;
-	}
-
-	//锟斤拷锟斤拷锟矫伙拷
+	
+	//添加好友s
+//	public boolean AddFriends(String s){
+//		JDBConection con=new JDBConection();
+//		if(con.createConnection()){
+//			String sql1="select Max(id) from friendsrelation;";
+//			ResultSet rs1=con.executeQuery(sql1);
+//			if(rs1!=null){
+//				
+//			}
+//		}
+//		return false;
+//	}
+	
+	//查找用户
 		public List<User> FindKeyWord(String s){
 			JDBConection con=new JDBConection();
 			if(con.createConnection()){
@@ -126,10 +139,10 @@ public class friendsrelationAction {
 				try{
 					rs=con.executeQuery(sql);
 					while(rs.next()){
-
+						
 						u.setusername(rs.getString("username"));
 						list.add(u);
-						//System.out.println("锟斤拷锟揭碉拷"+u);
+						//System.out.println("查找到"+u);
 				}
 					//System.out.println(list.size());
 					con.closeResultSet(rs);
@@ -138,4 +151,41 @@ public class friendsrelationAction {
 			}
 			return list;
 		}
+		
+		
+	//查找当前所有ID
+		public List<friendsrelation> SelectMaxId(){
+			JDBConection con=new JDBConection();
+			friendsrelation f = new friendsrelation();
+			if(con.createConnection()){
+				String sql="select friendsrid from friendsrelation;";
+				try {
+					ResultSet rs=con.executeQuery(sql);
+					while(rs.next()){
+					f.setid(rs.getInt("friendsrid"));
+					list.add(f);
+					}
+				
+
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			return list;
+		}
+		
+	//添加朋友
+		public void AddFriends(){
+			JDBConection con=new JDBConection();
+			if(con.createConnection()){
+				String sql="insert into friendsrelation(friendsrid,`nameone`,`nametwo`) values("+id+","+username+","+username_add+");";
+				try{
+					con.executeUpdate(sql);
+					con.closeConnection();
+			}catch(Exception e){e.printStackTrace();}
+			}
+		}
 }
+

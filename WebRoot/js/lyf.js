@@ -13,16 +13,18 @@
 		}
 	}
 
-function ComInfo(){
-	createXMLHttpRequest();
-	
-	xmlHttp.open("GET","UserinfoServlet?username_info=3",true);
-	xmlHttp.send(null);
-	
-	var user_pop = document.getElementById("hideInfo");
-	user_pop.style.display="block";
-	
-}
+ 	function ComInfo(){
+ 		createXMLHttpRequest();
+ 		
+ 		var user_pop = document.getElementById("hideInfo");
+ 		user_pop.style.display="block";
+ 		
+ 		var a = document.getElementById("ua");
+ 		console.log(a.value);
+ 		xmlHttp.open("GET","UserinfoServlet?username_info="+a.value,true);
+ 		xmlHttp.send(null);
+ 		
+ 	}
 
 function Hide(){
 	var user_name = document.getElementById("hideInfo");
@@ -37,4 +39,8 @@ function IsMine(){
 
 function NotFriends(){
 	alert("你还不是好友哦，请加好友再聊天，评价！");
+}
+
+function AddSuccess(){
+	alert("你和他已经是好友了，快去聊天和评价吧！");
 }

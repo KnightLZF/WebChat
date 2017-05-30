@@ -10,7 +10,7 @@ public class JDBConection {
 	private final String dbDriver="com.mysql.jdbc.Driver";
 	private final String url="jdbc:mysql://localhost:3306/WebChat?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 	private final String userName="root";
-	private final String password="fly";
+	private final String password="13868172035";
 	private ResultSet rs=null;
 	private Statement stmt=null;
 	private Connection con=null;
