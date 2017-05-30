@@ -98,4 +98,23 @@
   <servlet-name>DeleteMsgServlet</servlet-name>
   <url-pattern>/DeleteMsgServlet</url-pattern>
   </servlet-mapping>
+ 
+   <servlet>
+  <servlet-name>friendsrelationServlet</servlet-name>
+  <servlet-class>servlet.friendsrelationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>friendsrelationServlet</servlet-name>
+  <url-pattern>/friendsrelationServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>DeleteServlet</servlet-name>
+  <servlet-class>servlet.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>DeleteServlet</servlet-name>
+  <url-pattern>/DeleteServlet</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>

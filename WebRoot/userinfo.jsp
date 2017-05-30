@@ -6,15 +6,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="js/lyf.js"></script>
-<title>用户信息</title>
+<title>Insert title here</title>
 </head>
 <body style="background-image: url('img/background/glass4.jpg')">
 
 	<%
 		String username = request.getParameter("username_info");
-
+	
+		//判断搜索框内容是否为空，如果不为空，则进行下列显示
 		if (username != null && !"".equals(username)) {
-
+			
+			UserAction ua = new UserAction();
+			List<User> list_allUser = ua.SelectAll();
+			//定义一个参数来判断
+			boolean isExit = false;
+			for(int i=0;i<list_allUser.size();i++){
+				//如果注册用户包含了该被搜索的用户，则可以进行搜索，否则返回错误。。。。。。。。。。。。。
+				if(list_allUser.get(i).getusername().equals(username))
+					isExit=true;
+			}
+			
+			if(isExit){
+			
 			UserinfoAction uia = new UserinfoAction();
 			uia.setUsername(username);
 			List<Userinfo> list = uia.SelectUsersInfo();
@@ -107,21 +120,36 @@
 		</div>
 		<%
 			} else {
+				if(!username.equals(user.getusername())){
 		%>
 		<div
 			style="top: 400px; left: 0px; height: 100px; width: 500px; position: absolute;">
-			<textarea rows="4" cols="68" name="text" placeholder="请输入你对该用户的映像或评价吧。。。。。。。。" disabled="disabled"></textarea>
+			<textarea rows="4" cols="68" name="text" placeholder="你们还不是好友，所以不能进行评价哦！" disabled="disabled"></textarea>
 			<br> <input type="submit" value="提交" onclick="NotFriends()" /> 
-			 	 <input type="submit" value="加好友" />
+			 	 <a href="friendsrelationServlet?user_name_two=<%=username %>" onclick="AddSuccess()">加好友</a>
 			<span><a href="main.jsp">返回主窗口</a></span>
 
 		</div>
 		<%
-			}
+				}else{
+		%>
+					<div
+					style="top: 400px; left: 0px; height: 100px; width: 500px; position: absolute;">
+					<textarea rows="4" cols="68" name="text" placeholder="自己不能对自己评价哦！" disabled="disabled"></textarea>
+					<br> <input type="submit" value="提交" onclick="IsMine()" /> 
+					<span><a href="main.jsp">返回主窗口</a></span>
+
+				</div>
+		<% 
+				}}
 		%>
 	</div>
 	<%
-		} else {
+			}else{
+				
+				response.sendRedirect("main.jsp?SearchError=the user is not exit!");
+				
+			}} else {
 
 			response.sendRedirect("main.jsp?SearchError=you should enter ,not null!");
 		}

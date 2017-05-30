@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!--搜索框-->
         <div id="search" class="bg-success">
         	<form action="userinfo.jsp" method="post">
-           		<input id="searchtext" type="text" class="bg-success" name="username_info" placeholder="搜索">
+           		<input id="searchtext" type="text" class="bg-success" name="username_info" placeholder="搜索"/>
 			   		<input type="submit" class="btn btn-success btn-sm" value="搜索"/>
 		   		<br>
 		   		<%
