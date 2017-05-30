@@ -58,6 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		 %>
 
     		 <a href="userinfo.jsp?username_info=<%=user.getusername() %>">留言及评价</a>
+    		 <a href="Landout.jsp">退出</a>
         </div>
 
         <!--搜索框-->
